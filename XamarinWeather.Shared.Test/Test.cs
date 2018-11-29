@@ -28,6 +28,11 @@ namespace XamarinWeather.Shared.Test
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()), 
                 Times.Exactly(1));
+
+            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<IWeatherLocationCallback>()),
+                Times.Never());
+            Mock.Get(locationProvider.Object).Verify(x => x.CancelLocationUpdates(),
+                Times.Never());
         }
     }
 }

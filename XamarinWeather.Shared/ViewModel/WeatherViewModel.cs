@@ -35,7 +35,7 @@ namespace XamarinWeather.ViewModel
             }
             else
             {
-                var locationCallback = new WeatherLocationCallback(_weatherProvider);
+                var locationCallback = new WeatherLocationCallback(_weatherProvider, _locationProvider);
                 locationCallback.callback += LoadWeather;
                 await _locationProvider.GetLocationUpdates(locationCallback);
             }
@@ -44,8 +44,6 @@ namespace XamarinWeather.ViewModel
 
         private void LoadWeather(WeatherLocation location)
         {
-            _locationProvider.CancelLocationUpdates();
-
             activeTask = Task.Run(() => LoadWeatherAsync(location));
         }
 
@@ -67,14 +65,18 @@ namespace XamarinWeather.ViewModel
             public LocationUpdated callback;
 
             private readonly IWeatherProvider _weatherProvider;
+            private readonly IWeatherLocationProvider _locationProvider;
 
-            public WeatherLocationCallback(IWeatherProvider weatherProvider)
+            public WeatherLocationCallback(IWeatherProvider weatherProvider, 
+                IWeatherLocationProvider locationProvider)
             {
                 _weatherProvider = weatherProvider;
+                _locationProvider = locationProvider;
             }
 
             public void OnLocationChanged(WeatherLocation location)
             {
+                _locationProvider.CancelLocationUpdates();
                 callback?.Invoke(location);
             }
         }

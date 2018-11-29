@@ -4,9 +4,11 @@ namespace XamarinWeather.Location
 {
     public interface IWeatherLocationProvider
     {
-        Task<WeatherLocation> getLastLocation();
+        Task<WeatherLocation> GetLastLocation();
 
-        Task getLocationUpdates(IWeatherLocationCallback callback);
+        Task GetLocationUpdates(IWeatherLocationCallback callback);
+
+        void CancelLocationUpdates();
     }
 
     public interface IWeatherLocationCallback

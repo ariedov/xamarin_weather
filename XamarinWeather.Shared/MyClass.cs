@@ -1,5 +1,5 @@
 ﻿using System;
-namespace XamarinWeather
+namespace XamarinWeather.Shared
 {
     public class MyClass
     {

@@ -23,7 +23,7 @@ namespace XamarinWeather.Shared.ViewModel
 
         public void StartWeatherLoading()
         {
-            activeTask = Task.Run(LoadWeather);
+            activeTask = LoadWeather();
         }
 
         private async Task LoadWeather()
@@ -37,14 +37,14 @@ namespace XamarinWeather.Shared.ViewModel
             {
                 var locationCallback = new WeatherLocationCallback(_weatherProvider, _locationProvider);
                 locationCallback.callback += LoadWeather;
-                await _locationProvider.GetLocationUpdates(locationCallback);
+                activeTask = _locationProvider.GetLocationUpdates(locationCallback);
             }
 
         }
 
         private void LoadWeather(WeatherLocation location)
         {
-            activeTask = Task.Run(() => LoadWeatherAsync(location));
+            activeTask = LoadWeatherAsync(location);
         }
 
         private async Task LoadWeatherAsync(WeatherLocation location)

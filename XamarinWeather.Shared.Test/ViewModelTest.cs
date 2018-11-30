@@ -1,8 +1,9 @@
 ﻿using NUnit.Framework;
 using Moq;
-using XamarinWeather.Weather;
-using XamarinWeather.Location;
-using XamarinWeather.ViewModel;
+using XamarinWeather.Shared.Weather;
+using XamarinWeather.Shared.Location;
+using XamarinWeather.Shared.ViewModel;
+using XamarinWeather.Shared.Maybe;
 
 namespace XamarinWeather.Shared.Test
 {
@@ -19,14 +20,14 @@ namespace XamarinWeather.Shared.Test
                 locationProvider.Object, weatherProvider.Object);
 
             locationProvider.Setup(x => x.GetLastLocation())
-                .ReturnsAsync(new WeatherLocation(0.0, 0.0));
+                .ReturnsAsync(Maybe<WeatherLocation>.Some(new WeatherLocation(0.0, 0.0)));
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
-                .ReturnsAsync(new Weather.Weather(null, null));
+                .ReturnsAsync(new Weather.Weather("", null, null));
 
             weatherViewModel.StartWeatherLoading();
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
-            Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()), 
+            Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()),
                 Times.Exactly(1));
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<IWeatherLocationCallback>()),

@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
+using XamarinWeather.Shared.Maybe;
 
-namespace XamarinWeather.Location
+namespace XamarinWeather.Shared.Location
 {
     public interface IWeatherLocationProvider
     {
-        Task<WeatherLocation> GetLastLocation();
+        Task<Maybe<WeatherLocation>> GetLastLocation();
 
         Task GetLocationUpdates(IWeatherLocationCallback callback);
 

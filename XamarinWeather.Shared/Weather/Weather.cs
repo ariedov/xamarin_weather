@@ -1,13 +1,15 @@
 ﻿using System;
-namespace XamarinWeather.Weather
+namespace XamarinWeather.Shared.Weather
 {
     public class Weather
     {
+        public string Name { get; }
         public Description Description { get; }
         public Main Main { get; }
 
-        public Weather(Description description, Main main)
+        public Weather(string name, Description description, Main main)
         {
+            Name = name;
             Description = description;
             Main = main;
         }

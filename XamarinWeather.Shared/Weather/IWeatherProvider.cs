@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using XamarinWeather.Location;
+using XamarinWeather.Shared.Location;
 
-namespace XamarinWeather.Weather
+namespace XamarinWeather.Shared.Weather
 {
     public interface IWeatherProvider
     {

@@ -1,5 +1,4 @@
-﻿using System;
-namespace XamarinWeather.Location
+﻿namespace XamarinWeather.Shared.Location
 {
     public class WeatherLocation
     {

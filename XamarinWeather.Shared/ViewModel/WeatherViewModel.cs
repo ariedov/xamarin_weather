@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using XamarinWeather.Location;
-using XamarinWeather.Weather;
+using XamarinWeather.Shared.Location;
+using XamarinWeather.Shared.Weather;
 
-namespace XamarinWeather.ViewModel
+namespace XamarinWeather.Shared.ViewModel
 {
     public class WeatherViewModel
     {
@@ -29,9 +29,9 @@ namespace XamarinWeather.ViewModel
         private async Task LoadWeather()
         {
             var location = await _locationProvider.GetLastLocation();
-            if (location != null)
+            if (location.HasValue)
             {
-                LoadWeather(location);
+                LoadWeather(location.Value);
             }
             else
             {

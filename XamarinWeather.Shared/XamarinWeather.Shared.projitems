@@ -14,10 +14,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\WeatherViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Weather\IWeatherProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Weather\Weather.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Maybe\Maybe.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Location\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModel\" />
     <Folder Include="$(MSBuildThisFileDirectory)Weather\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Maybe\" />
   </ItemGroup>
 </Project>

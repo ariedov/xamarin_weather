@@ -16,10 +16,25 @@
             android:layout_width="match_parent" 
             android:layout_height="?attr/actionBarSize" 
             android:background="?attr/colorPrimary" 
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" 
-            app:layout_scrollFlags="scroll|enterAlways|snap" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         
     </android.support.design.widget.AppBarLayout>
     
-    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="96dp"
+            android:layout_height="96dp" 
+            app:srcCompat="@drawable/n01"/>
+        
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

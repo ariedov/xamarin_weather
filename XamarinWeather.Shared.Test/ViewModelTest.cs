@@ -29,8 +29,7 @@ namespace XamarinWeather.Shared.Test
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()),
                 Times.Exactly(1));
-
-            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<IWeatherLocationCallback>()),
+            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()),
                 Times.Never());
             Mock.Get(locationProvider.Object).Verify(x => x.CancelLocationUpdates(),
                 Times.Never());
@@ -47,15 +46,15 @@ namespace XamarinWeather.Shared.Test
 
             locationProvider.Setup(x => x.GetLastLocation())
                 .ReturnsAsync(Maybe<WeatherLocation>.None);
-            locationProvider.Setup(x => x.GetLocationUpdates(It.IsAny<IWeatherLocationCallback>()))
-                .Callback<IWeatherLocationCallback>(callback => callback.OnLocationChanged(new WeatherLocation(0.0, 0.0)));
+            locationProvider.Setup(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()))
+                .Callback<System.Action<WeatherLocation>> (callback => callback(new WeatherLocation(0.0, 0.0)));
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
                 .ReturnsAsync(new Weather.Weather("", null, null));
 
             weatherViewModel.StartWeatherLoading();
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
-            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<IWeatherLocationCallback>()),
+            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()),
                 Times.Exactly(1));
             Mock.Get(locationProvider.Object).Verify(x => x.CancelLocationUpdates(),
                 Times.Exactly(1));

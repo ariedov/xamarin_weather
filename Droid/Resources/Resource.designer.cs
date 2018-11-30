@@ -2312,26 +2312,26 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020084
-			public const int avd_hide_password_1 = 2130837636;
+			// aapt resource value: 0x7f020090
+			public const int avd_hide_password_1 = 2130837648;
 			
-			// aapt resource value: 0x7f020085
-			public const int avd_hide_password_2 = 2130837637;
+			// aapt resource value: 0x7f020091
+			public const int avd_hide_password_2 = 2130837649;
 			
-			// aapt resource value: 0x7f020086
-			public const int avd_hide_password_3 = 2130837638;
+			// aapt resource value: 0x7f020092
+			public const int avd_hide_password_3 = 2130837650;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020087
-			public const int avd_show_password_1 = 2130837639;
+			// aapt resource value: 0x7f020093
+			public const int avd_show_password_1 = 2130837651;
 			
-			// aapt resource value: 0x7f020088
-			public const int avd_show_password_2 = 2130837640;
+			// aapt resource value: 0x7f020094
+			public const int avd_show_password_2 = 2130837652;
 			
-			// aapt resource value: 0x7f020089
-			public const int avd_show_password_3 = 2130837641;
+			// aapt resource value: 0x7f020095
+			public const int avd_show_password_3 = 2130837653;
 			
 			// aapt resource value: 0x7f020055
 			public const int background_splash = 2130837589;
@@ -2397,82 +2397,118 @@ namespace XamarinWeather.Droid
 			public const int common_google_signin_btn_text_light_normal_background = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int design_bottom_navigation_item_background = 2130837610;
+			public const int d01 = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int design_fab_background = 2130837611;
+			public const int d02 = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int design_ic_visibility = 2130837612;
+			public const int d10 = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int design_ic_visibility_off = 2130837613;
+			public const int design_bottom_navigation_item_background = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int design_password_eye = 2130837614;
+			public const int design_fab_background = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int design_snackbar_background = 2130837615;
+			public const int design_ic_visibility = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int googleg_disabled_color_18 = 2130837616;
+			public const int design_ic_visibility_off = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int googleg_standard_color_18 = 2130837617;
+			public const int design_password_eye = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int heroplaceholder = 2130837618;
+			public const int design_snackbar_background = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int ic_save = 2130837619;
+			public const int googleg_disabled_color_18 = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int navigation_empty_icon = 2130837620;
+			public const int googleg_standard_color_18 = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int notification_action_background = 2130837621;
+			public const int heroplaceholder = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int notification_bg = 2130837622;
+			public const int ic_save = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int notification_bg_low = 2130837623;
+			public const int m03 = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int notification_bg_low_normal = 2130837624;
+			public const int m04 = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int notification_bg_low_pressed = 2130837625;
+			public const int m09 = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int notification_bg_normal = 2130837626;
+			public const int m11 = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int notification_bg_normal_pressed = 2130837627;
+			public const int m13 = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int notification_icon_background = 2130837628;
-			
-			// aapt resource value: 0x7f020082
-			public const int notification_template_icon_bg = 2130837634;
-			
-			// aapt resource value: 0x7f020083
-			public const int notification_template_icon_low_bg = 2130837635;
+			public const int m50 = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int notification_tile_bg = 2130837629;
+			public const int n01 = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int notify_panel_notification_icon_bg = 2130837630;
+			public const int n02 = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int tooltip_frame_dark = 2130837631;
+			public const int n10 = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int tooltip_frame_light = 2130837632;
+			public const int navigation_empty_icon = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int xamarin_logo = 2130837633;
+			public const int notification_action_background = 2130837633;
+			
+			// aapt resource value: 0x7f020082
+			public const int notification_bg = 2130837634;
+			
+			// aapt resource value: 0x7f020083
+			public const int notification_bg_low = 2130837635;
+			
+			// aapt resource value: 0x7f020084
+			public const int notification_bg_low_normal = 2130837636;
+			
+			// aapt resource value: 0x7f020085
+			public const int notification_bg_low_pressed = 2130837637;
+			
+			// aapt resource value: 0x7f020086
+			public const int notification_bg_normal = 2130837638;
+			
+			// aapt resource value: 0x7f020087
+			public const int notification_bg_normal_pressed = 2130837639;
+			
+			// aapt resource value: 0x7f020088
+			public const int notification_icon_background = 2130837640;
+			
+			// aapt resource value: 0x7f02008e
+			public const int notification_template_icon_bg = 2130837646;
+			
+			// aapt resource value: 0x7f02008f
+			public const int notification_template_icon_low_bg = 2130837647;
+			
+			// aapt resource value: 0x7f020089
+			public const int notification_tile_bg = 2130837641;
+			
+			// aapt resource value: 0x7f02008a
+			public const int notify_panel_notification_icon_bg = 2130837642;
+			
+			// aapt resource value: 0x7f02008b
+			public const int tooltip_frame_dark = 2130837643;
+			
+			// aapt resource value: 0x7f02008c
+			public const int tooltip_frame_light = 2130837644;
+			
+			// aapt resource value: 0x7f02008d
+			public const int xamarin_logo = 2130837645;
 			
 			static Drawable()
 			{
@@ -2505,8 +2541,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b003f
 			public const int SYM = 2131427391;
 			
-			// aapt resource value: 0x7f0b00a6
-			public const int action0 = 2131427494;
+			// aapt resource value: 0x7f0b00a7
+			public const int action0 = 2131427495;
 			
 			// aapt resource value: 0x7f0b0083
 			public const int action_bar = 2131427459;
@@ -2529,17 +2565,17 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0061
 			public const int action_bar_title = 2131427425;
 			
-			// aapt resource value: 0x7f0b00a3
-			public const int action_container = 2131427491;
+			// aapt resource value: 0x7f0b00a4
+			public const int action_container = 2131427492;
 			
 			// aapt resource value: 0x7f0b0084
 			public const int action_context_bar = 2131427460;
 			
-			// aapt resource value: 0x7f0b00aa
-			public const int action_divider = 2131427498;
+			// aapt resource value: 0x7f0b00ab
+			public const int action_divider = 2131427499;
 			
-			// aapt resource value: 0x7f0b00a4
-			public const int action_image = 2131427492;
+			// aapt resource value: 0x7f0b00a5
+			public const int action_image = 2131427493;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int action_menu_divider = 2131427331;
@@ -2556,11 +2592,11 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0063
 			public const int action_mode_close_button = 2131427427;
 			
-			// aapt resource value: 0x7f0b00a5
-			public const int action_text = 2131427493;
+			// aapt resource value: 0x7f0b00a6
+			public const int action_text = 2131427494;
 			
-			// aapt resource value: 0x7f0b00b3
-			public const int actions = 2131427507;
+			// aapt resource value: 0x7f0b00b4
+			public const int actions = 2131427508;
 			
 			// aapt resource value: 0x7f0b0064
 			public const int activity_chooser_view_content = 2131427428;
@@ -2604,8 +2640,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b006a
 			public const int buttonPanel = 2131427434;
 			
-			// aapt resource value: 0x7f0b00a7
-			public const int cancel_action = 2131427495;
+			// aapt resource value: 0x7f0b00a8
+			public const int cancel_action = 2131427496;
 			
 			// aapt resource value: 0x7f0b004c
 			public const int center = 2131427404;
@@ -2619,8 +2655,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b007a
 			public const int checkbox = 2131427450;
 			
-			// aapt resource value: 0x7f0b00af
-			public const int chronometer = 2131427503;
+			// aapt resource value: 0x7f0b00b0
+			public const int chronometer = 2131427504;
 			
 			// aapt resource value: 0x7f0b0055
 			public const int clip_horizontal = 2131427413;
@@ -2631,14 +2667,14 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0041
 			public const int collapseActionView = 2131427393;
 			
-			// aapt resource value: 0x7f0b0097
-			public const int container = 2131427479;
+			// aapt resource value: 0x7f0b0098
+			public const int container = 2131427480;
 			
 			// aapt resource value: 0x7f0b006d
 			public const int contentPanel = 2131427437;
 			
-			// aapt resource value: 0x7f0b0098
-			public const int coordinator = 2131427480;
+			// aapt resource value: 0x7f0b0099
+			public const int coordinator = 2131427481;
 			
 			// aapt resource value: 0x7f0b0074
 			public const int custom = 2131427444;
@@ -2655,20 +2691,20 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0067
 			public const int default_activity_button = 2131427431;
 			
-			// aapt resource value: 0x7f0b009a
-			public const int design_bottom_sheet = 2131427482;
+			// aapt resource value: 0x7f0b009b
+			public const int design_bottom_sheet = 2131427483;
+			
+			// aapt resource value: 0x7f0b00a2
+			public const int design_menu_item_action_area = 2131427490;
 			
 			// aapt resource value: 0x7f0b00a1
-			public const int design_menu_item_action_area = 2131427489;
+			public const int design_menu_item_action_area_stub = 2131427489;
 			
 			// aapt resource value: 0x7f0b00a0
-			public const int design_menu_item_action_area_stub = 2131427488;
+			public const int design_menu_item_text = 2131427488;
 			
 			// aapt resource value: 0x7f0b009f
-			public const int design_menu_item_text = 2131427487;
-			
-			// aapt resource value: 0x7f0b009e
-			public const int design_navigation_view = 2131427486;
+			public const int design_navigation_view = 2131427487;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int disableHome = 2131427369;
@@ -2679,8 +2715,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0038
 			public const int end = 2131427384;
 			
-			// aapt resource value: 0x7f0b00b5
-			public const int end_padder = 2131427509;
+			// aapt resource value: 0x7f0b00b6
+			public const int end_padder = 2131427510;
 			
 			// aapt resource value: 0x7f0b0047
 			public const int enterAlways = 2131427399;
@@ -2724,8 +2760,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0069
 			public const int icon = 2131427433;
 			
-			// aapt resource value: 0x7f0b00b4
-			public const int icon_group = 2131427508;
+			// aapt resource value: 0x7f0b00b5
+			public const int icon_group = 2131427509;
 			
 			// aapt resource value: 0x7f0b0020
 			public const int icon_only = 2131427360;
@@ -2736,8 +2772,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0066
 			public const int image = 2131427430;
 			
-			// aapt resource value: 0x7f0b00b0
-			public const int info = 2131427504;
+			// aapt resource value: 0x7f0b00b1
+			public const int info = 2131427505;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int italic = 2131427424;
@@ -2745,8 +2781,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0000
 			public const int item_touch_helper_previous_elevation = 2131427328;
 			
-			// aapt resource value: 0x7f0b0096
-			public const int largeLabel = 2131427478;
+			// aapt resource value: 0x7f0b0097
+			public const int largeLabel = 2131427479;
 			
 			// aapt resource value: 0x7f0b0050
 			public const int left = 2131427408;
@@ -2769,17 +2805,17 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0092
 			public const int main_content = 2131427474;
 			
-			// aapt resource value: 0x7f0b00b8
-			public const int masked = 2131427512;
-			
-			// aapt resource value: 0x7f0b00a9
-			public const int media_actions = 2131427497;
-			
 			// aapt resource value: 0x7f0b00b9
-			public const int menu_edit = 2131427513;
+			public const int masked = 2131427513;
 			
-			// aapt resource value: 0x7f0b00b6
-			public const int message = 2131427510;
+			// aapt resource value: 0x7f0b00aa
+			public const int media_actions = 2131427498;
+			
+			// aapt resource value: 0x7f0b00ba
+			public const int menu_edit = 2131427514;
+			
+			// aapt resource value: 0x7f0b00b7
+			public const int message = 2131427511;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int middle = 2131427385;
@@ -2790,8 +2826,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0030
 			public const int multiply = 2131427376;
 			
-			// aapt resource value: 0x7f0b009d
-			public const int navigation_header_container = 2131427485;
+			// aapt resource value: 0x7f0b009e
+			public const int navigation_header_container = 2131427486;
 			
 			// aapt resource value: 0x7f0b0043
 			public const int never = 2131427395;
@@ -2802,14 +2838,14 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0027
 			public const int normal = 2131427367;
 			
-			// aapt resource value: 0x7f0b00b2
-			public const int notification_background = 2131427506;
+			// aapt resource value: 0x7f0b00b3
+			public const int notification_background = 2131427507;
+			
+			// aapt resource value: 0x7f0b00ad
+			public const int notification_main_column = 2131427501;
 			
 			// aapt resource value: 0x7f0b00ac
-			public const int notification_main_column = 2131427500;
-			
-			// aapt resource value: 0x7f0b00ab
-			public const int notification_main_column_container = 2131427499;
+			public const int notification_main_column_container = 2131427500;
 			
 			// aapt resource value: 0x7f0b0053
 			public const int parallax = 2131427411;
@@ -2835,11 +2871,11 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0051
 			public const int right = 2131427409;
 			
-			// aapt resource value: 0x7f0b00b1
-			public const int right_icon = 2131427505;
+			// aapt resource value: 0x7f0b00b2
+			public const int right_icon = 2131427506;
 			
-			// aapt resource value: 0x7f0b00ad
-			public const int right_side = 2131427501;
+			// aapt resource value: 0x7f0b00ae
+			public const int right_side = 2131427502;
 			
 			// aapt resource value: 0x7f0b000c
 			public const int save_image_matrix = 2131427340;
@@ -2913,14 +2949,14 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b002d
 			public const int showTitle = 2131427373;
 			
-			// aapt resource value: 0x7f0b0095
-			public const int smallLabel = 2131427477;
+			// aapt resource value: 0x7f0b0096
+			public const int smallLabel = 2131427478;
+			
+			// aapt resource value: 0x7f0b009d
+			public const int snackbar_action = 2131427485;
 			
 			// aapt resource value: 0x7f0b009c
-			public const int snackbar_action = 2131427484;
-			
-			// aapt resource value: 0x7f0b009b
-			public const int snackbar_text = 2131427483;
+			public const int snackbar_text = 2131427484;
 			
 			// aapt resource value: 0x7f0b004b
 			public const int snap = 2131427403;
@@ -2946,8 +2982,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0052
 			public const int start = 2131427410;
 			
-			// aapt resource value: 0x7f0b00a8
-			public const int status_bar_latest_event_content = 2131427496;
+			// aapt resource value: 0x7f0b00a9
+			public const int status_bar_latest_event_content = 2131427497;
 			
 			// aapt resource value: 0x7f0b007d
 			public const int submenuarrow = 2131427453;
@@ -2961,6 +2997,9 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0019
 			public const int tag_transition_group = 2131427353;
 			
+			// aapt resource value: 0x7f0b0095
+			public const int temperature = 2131427477;
+			
 			// aapt resource value: 0x7f0b001a
 			public const int text = 2131427354;
 			
@@ -2973,8 +3012,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0070
 			public const int textSpacerNoTitle = 2131427440;
 			
-			// aapt resource value: 0x7f0b00a2
-			public const int text_input_password_toggle = 2131427490;
+			// aapt resource value: 0x7f0b00a3
+			public const int text_input_password_toggle = 2131427491;
 			
 			// aapt resource value: 0x7f0b0014
 			public const int textinput_counter = 2131427348;
@@ -2982,8 +3021,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0015
 			public const int textinput_error = 2131427349;
 			
-			// aapt resource value: 0x7f0b00ae
-			public const int time = 2131427502;
+			// aapt resource value: 0x7f0b00af
+			public const int time = 2131427503;
 			
 			// aapt resource value: 0x7f0b001c
 			public const int title = 2131427356;
@@ -3003,8 +3042,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0075
 			public const int topPanel = 2131427445;
 			
-			// aapt resource value: 0x7f0b0099
-			public const int touch_outside = 2131427481;
+			// aapt resource value: 0x7f0b009a
+			public const int touch_outside = 2131427482;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int transition_current_scene = 2131427343;
@@ -3033,8 +3072,8 @@ namespace XamarinWeather.Droid
 			// aapt resource value: 0x7f0b0016
 			public const int view_offset_helper = 2131427350;
 			
-			// aapt resource value: 0x7f0b00b7
-			public const int visible = 2131427511;
+			// aapt resource value: 0x7f0b00b8
+			public const int visible = 2131427512;
 			
 			// aapt resource value: 0x7f0b0022
 			public const int wide = 2131427362;

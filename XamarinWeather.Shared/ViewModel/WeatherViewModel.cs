@@ -28,18 +28,28 @@ namespace XamarinWeather.Shared.ViewModel
 
         private async Task LoadWeather()
         {
-            var location = await _locationProvider.GetLastLocation();
+            var location = await GetLocation();
+            LoadWeather(location);
+        }
+
+        private Task<WeatherLocation> GetLocation()
+        {
+            var t = new TaskCompletionSource<WeatherLocation>();
+            var location = _locationProvider.GetLastLocation().Result;
             if (location.HasValue)
             {
-                LoadWeather(location.Value);
+                t.SetResult(location.Value);
             }
             else
             {
-                var locationCallback = new WeatherLocationCallback(_weatherProvider, _locationProvider);
-                locationCallback.callback += LoadWeather;
-                activeTask = _locationProvider.GetLocationUpdates(locationCallback);
+                _locationProvider.GetLocationUpdates((weatherLocation) =>
+                {
+                    _locationProvider.CancelLocationUpdates();
+                    t.SetResult(weatherLocation);
+                });
             }
 
+            return t.Task;
         }
 
         private void LoadWeather(WeatherLocation location)
@@ -50,44 +60,20 @@ namespace XamarinWeather.Shared.ViewModel
         private async Task LoadWeatherAsync(WeatherLocation location)
         {
             var weather = await _weatherProvider.GetWeather(location);
-            DataChanged?.Invoke(new WeatherData(0.0, ""));
+            DataChanged?.Invoke(new WeatherData(0.0, WeatherIcon.MIST));
         }
-
 
         public void Dispose()
         {
-            activeTask?.Dispose();
-        }
-
-        class WeatherLocationCallback : IWeatherLocationCallback
-        {
-            public delegate void LocationUpdated(WeatherLocation location);
-            public LocationUpdated callback;
-
-            private readonly IWeatherProvider _weatherProvider;
-            private readonly IWeatherLocationProvider _locationProvider;
-
-            public WeatherLocationCallback(IWeatherProvider weatherProvider, 
-                IWeatherLocationProvider locationProvider)
-            {
-                _weatherProvider = weatherProvider;
-                _locationProvider = locationProvider;
-            }
-
-            public void OnLocationChanged(WeatherLocation location)
-            {
-                _locationProvider.CancelLocationUpdates();
-                callback?.Invoke(location);
-            }
         }
     }
 
     public class WeatherData
     {
         public double Temp { get; }
-        public string IconType { get; }
+        public WeatherIcon IconType { get; }
 
-        public WeatherData(double temp, string iconType)
+        public WeatherData(double temp, WeatherIcon iconType)
         {
             Temp = temp;
             IconType = iconType;

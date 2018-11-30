@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using XamarinWeather.Shared.Maybe;
 
 namespace XamarinWeather.Shared.Location
@@ -7,13 +8,8 @@ namespace XamarinWeather.Shared.Location
     {
         Task<Maybe<WeatherLocation>> GetLastLocation();
 
-        Task GetLocationUpdates(IWeatherLocationCallback callback);
+        Task GetLocationUpdates(Action<WeatherLocation> action);
 
         void CancelLocationUpdates();
-    }
-
-    public interface IWeatherLocationCallback
-    {
-        void OnLocationChanged(WeatherLocation location);
     }
 }

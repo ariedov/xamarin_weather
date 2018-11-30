@@ -5,6 +5,10 @@ using Android.Gms.Location;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Widget;
+using XamarinWeather.Droid.Location;
+using XamarinWeather.Shared.ViewModel;
+using XamarinWeather.WeatherProvider.Provider;
 
 namespace XamarinWeather.Droid
 {
@@ -15,15 +19,32 @@ namespace XamarinWeather.Droid
     {
         FusedLocationProviderClient locationProvider;
 
+        WeatherViewModel viewModel;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
 
-            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
+            var temperatureView = FindViewById<TextView>(Resource.Id.temperature);
+
             locationProvider = LocationServices.GetFusedLocationProviderClient(this);
+
+            viewModel = new WeatherViewModel(new LocationProvider(), new DefaultWeatherProvider());
+            viewModel.DataChanged += data =>
+            {
+                temperatureView.Text = data.Temp.ToString();
+            };
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+
+            viewModel.StartWeatherLoading();
         }
     }
 }

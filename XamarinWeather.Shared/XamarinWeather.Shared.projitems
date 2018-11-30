@@ -15,6 +15,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Weather\IWeatherProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Weather\Weather.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Maybe\Maybe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Weather\WeatherIcon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Weather\WeatherIconConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Location\" />

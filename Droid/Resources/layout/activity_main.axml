@@ -33,8 +33,18 @@
             app:srcCompat="@drawable/n01"/>
         
         <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="18sp"/>
+        
+        <TextView
             android:id="@+id/temperature"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

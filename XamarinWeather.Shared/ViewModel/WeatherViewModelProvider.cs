@@ -16,10 +16,10 @@ namespace XamarinWeather.Shared.ViewModel
             _weatherProvider = weatherProvider;
         }
 
-        public Task<Weather.Weather> GetWeather()
+        public async Task<Weather.Weather> GetWeather()
         {
-            var location = GetLocation().Result;
-            return _weatherProvider.GetWeather(location);
+            var location = await GetLocation();
+            return await _weatherProvider.GetWeather(location);
         }
 
         private Task<WeatherLocation> GetLocation()

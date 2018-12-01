@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content.PM;
 using Android.Gms.Location;
@@ -29,6 +30,7 @@ namespace XamarinWeather.Droid
             var toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
+            var nameView = FindViewById<TextView>(Resource.Id.name);
             var temperatureView = FindViewById<TextView>(Resource.Id.temperature);
 
             locationProvider = LocationServices.GetFusedLocationProviderClient(this);
@@ -37,7 +39,8 @@ namespace XamarinWeather.Droid
             viewModel = new WeatherViewModel(provider);
             viewModel.DataChanged += data =>
             {
-                temperatureView.Text = data.Temp.ToString();
+                nameView.Text = data.Name;
+                temperatureView.Text = $"{Convert.ToInt32(data.Temp)}\u2103";
             };
         }
 

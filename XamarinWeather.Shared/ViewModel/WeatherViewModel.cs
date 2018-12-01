@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using XamarinWeather.Shared.Weather;
 
 namespace XamarinWeather.Shared.ViewModel
@@ -10,36 +11,37 @@ namespace XamarinWeather.Shared.ViewModel
 
         private WeatherViewModelProvider _dataProvider;
 
-        private Task activeTask;
+        private CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
         public WeatherViewModel(WeatherViewModelProvider dataProvider)
         {
             _dataProvider = dataProvider;
         }
 
-        public void StartWeatherLoading()
+        public async Task StartWeatherLoading()
         {
-            activeTask = Task.Run(LoadWeather);
-        }
-
-        private async Task LoadWeather()
-        {
-            var weather = await _dataProvider.GetWeather();
-            DataChanged?.Invoke(new WeatherData(0.0, WeatherIcon.MIST));
+            var weather = await Task.Run(() =>
+            {
+                return _dataProvider.GetWeather().Result;
+            }, _tokenSource.Token);
+            DataChanged?.Invoke(new WeatherData(weather.Name, weather.Main.Temp, WeatherIcon.MIST));
         }
 
         public void Dispose()
         {
+            _tokenSource.Dispose();
         }
     }
 
     public class WeatherData
     {
+        public string Name { get; }
         public double Temp { get; }
         public WeatherIcon IconType { get; }
 
-        public WeatherData(double temp, WeatherIcon iconType)
+        public WeatherData(string name, double temp, WeatherIcon iconType)
         {
+            Name = name;
             Temp = temp;
             IconType = iconType;
         }

@@ -29,8 +29,7 @@
         <ImageView
             android:id="@+id/icon"
             android:layout_width="96dp"
-            android:layout_height="96dp" 
-            app:srcCompat="@drawable/n01"/>
+            android:layout_height="96dp" />
         
         <TextView
             android:id="@+id/name"

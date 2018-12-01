@@ -22,25 +22,28 @@ namespace XamarinWeather.Shared.ViewModel
             return await _weatherProvider.GetWeather(location);
         }
 
-        private Task<WeatherLocation> GetLocation()
+        private async Task<WeatherLocation> GetLocation()
         {
-            var t = new TaskCompletionSource<WeatherLocation>();
-            var location = _locationProvider.GetLastLocation().Result;
+            var location = await _locationProvider.GetLastLocation();
             if (location.HasValue)
             {
-                t.SetResult(location.Value);
+                return location.Value;
             }
             else
             {
-                _locationProvider.GetLocationUpdates((weatherLocation) =>
-                {
-                    _locationProvider.CancelLocationUpdates();
-                    t.SetResult(weatherLocation);
-                });
+                return await GetLocationFromCallback();
             }
-
-            return t.Task;
         }
 
+        private Task<WeatherLocation> GetLocationFromCallback()
+        {
+            var t = new TaskCompletionSource<WeatherLocation>();
+            _locationProvider.GetLocationUpdates((weatherLocation) =>
+            {
+                _locationProvider.CancelLocationUpdates();
+                t.SetResult(weatherLocation);
+            });
+            return t.Task;
+        }
     }
 }

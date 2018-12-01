@@ -4,6 +4,7 @@ using XamarinWeather.Shared.Weather;
 using XamarinWeather.Shared.Location;
 using XamarinWeather.Shared.ViewModel;
 using XamarinWeather.Shared.Maybe;
+using System.Threading.Tasks;
 
 namespace XamarinWeather.Shared.Test
 {
@@ -11,12 +12,12 @@ namespace XamarinWeather.Shared.Test
     public class Test
     {
         [Test]
-        public void TestRecentLocationAvailable()
+        public async Task TestRecentLocationAvailable()
         {
             Mock<IWeatherLocationProvider> locationProvider = new Mock<IWeatherLocationProvider>();
             Mock<IWeatherProvider> weatherProvider = new Mock<IWeatherProvider>();
 
-            WeatherViewModel weatherViewModel = new WeatherViewModel(
+            WeatherViewModelProvider dataProvider = new WeatherViewModelProvider(
                 locationProvider.Object, weatherProvider.Object);
 
             locationProvider.Setup(x => x.GetLastLocation())
@@ -24,7 +25,7 @@ namespace XamarinWeather.Shared.Test
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
                 .ReturnsAsync(new Weather.Weather("", null, null));
 
-            weatherViewModel.StartWeatherLoading();
+            await dataProvider.GetWeather();
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()),
@@ -36,12 +37,12 @@ namespace XamarinWeather.Shared.Test
         }
 
         [Test]
-        public void TestRecentLocationUnavailable()
+        public async Task TestRecentLocationUnavailable()
         {
             Mock<IWeatherLocationProvider> locationProvider = new Mock<IWeatherLocationProvider>();
             Mock<IWeatherProvider> weatherProvider = new Mock<IWeatherProvider>();
 
-            WeatherViewModel weatherViewModel = new WeatherViewModel(
+            WeatherViewModelProvider dataProvider = new WeatherViewModelProvider(
                 locationProvider.Object, weatherProvider.Object);
 
             locationProvider.Setup(x => x.GetLastLocation())
@@ -51,7 +52,7 @@ namespace XamarinWeather.Shared.Test
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
                 .ReturnsAsync(new Weather.Weather("", null, null));
 
-            weatherViewModel.StartWeatherLoading();
+            await dataProvider.GetWeather();
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()),

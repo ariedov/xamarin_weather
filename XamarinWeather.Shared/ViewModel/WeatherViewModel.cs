@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using XamarinWeather.Shared.Location;
 using XamarinWeather.Shared.Weather;
 
 namespace XamarinWeather.Shared.ViewModel
@@ -9,16 +8,13 @@ namespace XamarinWeather.Shared.ViewModel
         public delegate void WeatherStateHandler(WeatherData data);
         public event WeatherStateHandler DataChanged;
 
-        private readonly IWeatherLocationProvider _locationProvider;
-        private readonly IWeatherProvider _weatherProvider;
+        private WeatherViewModelProvider _dataProvider;
 
         private Task activeTask;
 
-        public WeatherViewModel(IWeatherLocationProvider locationProvider,
-            IWeatherProvider weatherProvider)
+        public WeatherViewModel(WeatherViewModelProvider dataProvider)
         {
-            _locationProvider = locationProvider;
-            _weatherProvider = weatherProvider;
+            _dataProvider = dataProvider;
         }
 
         public void StartWeatherLoading()
@@ -28,38 +24,7 @@ namespace XamarinWeather.Shared.ViewModel
 
         private async Task LoadWeather()
         {
-            var location = await GetLocation();
-            LoadWeather(location);
-        }
-
-        private Task<WeatherLocation> GetLocation()
-        {
-            var t = new TaskCompletionSource<WeatherLocation>();
-            var location = _locationProvider.GetLastLocation().Result;
-            if (location.HasValue)
-            {
-                t.SetResult(location.Value);
-            }
-            else
-            {
-                _locationProvider.GetLocationUpdates((weatherLocation) =>
-                {
-                    _locationProvider.CancelLocationUpdates();
-                    t.SetResult(weatherLocation);
-                });
-            }
-
-            return t.Task;
-        }
-
-        private void LoadWeather(WeatherLocation location)
-        {
-            activeTask = LoadWeatherAsync(location);
-        }
-
-        private async Task LoadWeatherAsync(WeatherLocation location)
-        {
-            var weather = await _weatherProvider.GetWeather(location);
+            await _dataProvider.GetWeather();
             DataChanged?.Invoke(new WeatherData(0.0, WeatherIcon.MIST));
         }
 

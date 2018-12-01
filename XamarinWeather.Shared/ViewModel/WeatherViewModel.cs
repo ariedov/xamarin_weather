@@ -19,12 +19,12 @@ namespace XamarinWeather.Shared.ViewModel
 
         public void StartWeatherLoading()
         {
-            activeTask = LoadWeather();
+            activeTask = Task.Run(LoadWeather);
         }
 
         private async Task LoadWeather()
         {
-            await _dataProvider.GetWeather();
+            var weather = await _dataProvider.GetWeather();
             DataChanged?.Invoke(new WeatherData(0.0, WeatherIcon.MIST));
         }
 

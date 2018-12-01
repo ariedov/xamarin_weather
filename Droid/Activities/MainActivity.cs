@@ -33,7 +33,8 @@ namespace XamarinWeather.Droid
 
             locationProvider = LocationServices.GetFusedLocationProviderClient(this);
 
-            viewModel = new WeatherViewModel(new LocationProvider(), new DefaultWeatherProvider());
+            var provider = new WeatherViewModelProvider(new LocationProvider(), new DefaultWeatherProvider());
+            viewModel = new WeatherViewModel(provider);
             viewModel.DataChanged += data =>
             {
                 temperatureView.Text = data.Temp.ToString();

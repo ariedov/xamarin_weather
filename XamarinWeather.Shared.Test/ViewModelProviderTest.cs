@@ -6,8 +6,11 @@ using XamarinWeather.Shared.ViewModel;
 using XamarinWeather.Shared.Maybe;
 using System.Threading.Tasks;
 
+#pragma warning disable CS1701 // Assuming assembly reference matches identity
+
 namespace XamarinWeather.Shared.Test
 {
+
     [TestFixture]
     public class Test
     {
@@ -23,9 +26,10 @@ namespace XamarinWeather.Shared.Test
             locationProvider.Setup(x => x.GetLastLocation())
                 .ReturnsAsync(Maybe<WeatherLocation>.Some(new WeatherLocation(0.0, 0.0)));
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
-                .ReturnsAsync(new Weather.Weather("", null, null));
+                .ReturnsAsync(new Weather.Weather("Kyiv", null, null));
 
-            await dataProvider.GetWeather();
+            var weather = await dataProvider.GetWeather();
+            Assert.AreEqual("Kyiv", weather.Name);
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()),
@@ -50,9 +54,10 @@ namespace XamarinWeather.Shared.Test
             locationProvider.Setup(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()))
                 .Callback<System.Action<WeatherLocation>> (callback => callback(new WeatherLocation(0.0, 0.0)));
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
-                .ReturnsAsync(new Weather.Weather("", null, null));
+                .ReturnsAsync(new Weather.Weather("Kyiv", null, null));
 
-            await dataProvider.GetWeather();
+            var weather = await dataProvider.GetWeather();
+            Assert.AreEqual("Kyiv", weather.Name);
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()),

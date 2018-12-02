@@ -42,6 +42,10 @@ namespace XamarinWeather.Shared.ViewModel
             {
                 _locationProvider.CancelLocationUpdates();
                 t.SetResult(weatherLocation);
+            }, 
+            () =>
+            {
+                t.SetException(new System.Exception());
             });
             return t.Task;
         }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.Gms.Location;
 using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.Graphics.Drawable;
+using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Widget;
@@ -21,6 +23,8 @@ namespace XamarinWeather.Droid
         ScreenOrientation = ScreenOrientation.SensorPortrait, MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        private const int REQUEST_LOCATION = 1;
+
         FusedLocationProviderClient locationProvider;
 
         WeatherViewModel viewModel;
@@ -39,7 +43,7 @@ namespace XamarinWeather.Droid
 
             locationProvider = LocationServices.GetFusedLocationProviderClient(this);
 
-            var provider = new WeatherViewModelProvider(new LocationProvider(), new DefaultWeatherProvider());
+            var provider = new WeatherViewModelProvider(new LocationProvider(locationProvider), new DefaultWeatherProvider());
             var iconConverter = new WeatherIconConverter();
             viewModel = new WeatherViewModel(provider, iconConverter);
             viewModel.DataChanged += data =>
@@ -96,7 +100,37 @@ namespace XamarinWeather.Droid
         {
             base.OnStart();
 
-            viewModel.StartWeatherLoading();
+            if (ActivityCompat.ShouldShowRequestPermissionRationale(this, Manifest.Permission.AccessFineLocation))
+            {
+                var requiredPermissions = new String[] { Manifest.Permission.AccessFineLocation };
+                ActivityCompat.RequestPermissions(this, requiredPermissions, REQUEST_LOCATION);
+            }
+            else
+            {
+                ActivityCompat.RequestPermissions(this, new String[] { Manifest.Permission.AccessFineLocation }, REQUEST_LOCATION);
+            }
+        }
+
+        protected override void OnStop()
+        {
+            base.OnStop();
+
+            viewModel.Dispose();
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            if (requestCode == REQUEST_LOCATION)
+            {
+                if ((grantResults.Length == 1) && (grantResults[0] == Permission.Granted))
+                {
+                    viewModel.StartWeatherLoading();
+                }
+            }
+            else
+            {
+                base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
         }
     }
 }

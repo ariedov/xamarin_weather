@@ -34,7 +34,8 @@ namespace XamarinWeather.Shared.Test
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
             Mock.Get(weatherProvider.Object).Verify(x => x.GetWeather(It.IsAny<WeatherLocation>()),
                 Times.Exactly(1));
-            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()),
+            Mock.Get(locationProvider.Object).Verify(x => 
+                x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>(), It.IsAny<System.Action>()),
                 Times.Never());
             Mock.Get(locationProvider.Object).Verify(x => x.CancelLocationUpdates(),
                 Times.Never());
@@ -51,7 +52,8 @@ namespace XamarinWeather.Shared.Test
 
             locationProvider.Setup(x => x.GetLastLocation())
                 .ReturnsAsync(Maybe<WeatherLocation>.None);
-            locationProvider.Setup(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()))
+            locationProvider.Setup(x => 
+                x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>(), It.IsAny<System.Action>()))
                 .Callback<System.Action<WeatherLocation>> (callback => callback(new WeatherLocation(0.0, 0.0)));
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
                 .ReturnsAsync(new Weather.Weather("Kyiv", null, null));
@@ -60,7 +62,8 @@ namespace XamarinWeather.Shared.Test
             Assert.AreEqual("Kyiv", weather.Name);
 
             Mock.Get(locationProvider.Object).Verify(x => x.GetLastLocation(), Times.Exactly(1));
-            Mock.Get(locationProvider.Object).Verify(x => x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>()),
+            Mock.Get(locationProvider.Object).Verify(x => 
+                x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>(), It.IsAny<System.Action>()),
                 Times.Exactly(1));
             Mock.Get(locationProvider.Object).Verify(x => x.CancelLocationUpdates(),
                 Times.Exactly(1));

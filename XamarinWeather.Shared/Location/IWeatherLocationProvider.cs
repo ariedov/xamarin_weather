@@ -8,8 +8,8 @@ namespace XamarinWeather.Shared.Location
     {
         Task<Maybe<WeatherLocation>> GetLastLocation();
 
-        Task GetLocationUpdates(Action<WeatherLocation> action);
+        Task GetLocationUpdates(Action<WeatherLocation> action, Action error);
 
-        void CancelLocationUpdates();
+        Task CancelLocationUpdates();
     }
 }

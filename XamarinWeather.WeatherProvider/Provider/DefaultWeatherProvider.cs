@@ -8,7 +8,8 @@ namespace XamarinWeather.WeatherProvider.Provider
 {
     public class DefaultWeatherProvider : IWeatherProvider
     {
-        private const string API_KEY = "<insert your api key>";
+        private const string API_KEY = "<your app id goes here>";
+        private const int KELVIN_ZERO = -273;
 
         public async Task<Weather> GetWeather(WeatherLocation location)
         {
@@ -25,7 +26,7 @@ namespace XamarinWeather.WeatherProvider.Provider
 
             var mainJson = json["main"];
             var main = new Main(
-                 mainJson["temp"], mainJson["pressure"], mainJson["humidity"]
+                 mainJson["temp"] + KELVIN_ZERO, mainJson["pressure"], mainJson["humidity"]
              );
 
             return new Weather(json["name"], description, main);

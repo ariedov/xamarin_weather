@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using XamarinWeather.Shared.Weather;
 
@@ -14,7 +15,7 @@ namespace XamarinWeather.Shared.ViewModel
 
         private CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
-        public WeatherViewModel(WeatherViewModelProvider dataProvider, 
+        public WeatherViewModel(WeatherViewModelProvider dataProvider,
             WeatherIconConverter iconConverter)
         {
             _dataProvider = dataProvider;
@@ -25,11 +26,26 @@ namespace XamarinWeather.Shared.ViewModel
         {
             var weather = await Task.Run(() =>
             {
-                return _dataProvider.GetWeather().Result;
+                try
+                {
+                    return _dataProvider.GetWeather().Result;
+                }
+                catch (Exception)
+                {
+                    return new Weather.Weather("Error", null, null);
+                }
             }, _tokenSource.Token);
 
-            DataChanged?.Invoke(new WeatherData(weather.Name, weather.Main.Temp,
+            if (weather.Main == null || weather.Description == null)
+            {
+                DataChanged?.Invoke(new WeatherData(weather.Name, -273.0,
+                    WeatherIcon.THUNDERSTORM));
+            }
+            else
+            {
+                DataChanged?.Invoke(new WeatherData(weather.Name, weather.Main.Temp,
                     _iconConverter.Convert(weather.Description.Icon)));
+            }
         }
 
         public void Dispose()

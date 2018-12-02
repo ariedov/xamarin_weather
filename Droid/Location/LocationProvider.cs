@@ -22,7 +22,7 @@ namespace XamarinWeather.Droid.Location
             return await Task.Run(() =>
             {
                 return Maybe<WeatherLocation>.Some(new WeatherLocation(
-                    0.0, 0.0
+                    35.0, 139.0
                 ));
             });
 

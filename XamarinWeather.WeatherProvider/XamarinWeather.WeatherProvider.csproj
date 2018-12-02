@@ -33,6 +33,14 @@
   <ItemGroup>
     <Folder Include="Provider\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Json">
+      <HintPath>..\packages\System.Json.4.5.0\lib\netstandard1.0\System.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <Import Project="..\XamarinWeather.Shared\XamarinWeather.Shared.projitems" Label="Shared" Condition="Exists('..\XamarinWeather.Shared\XamarinWeather.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

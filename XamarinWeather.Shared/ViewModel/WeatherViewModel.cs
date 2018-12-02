@@ -10,19 +10,19 @@ namespace XamarinWeather.Shared.ViewModel
         public delegate void WeatherStateHandler(WeatherData data);
         public event WeatherStateHandler DataChanged;
 
-        private WeatherViewModelProvider _dataProvider;
+        private IWeatherViewModelProvider _dataProvider;
         private WeatherIconConverter _iconConverter;
 
         private CancellationTokenSource _tokenSource = new CancellationTokenSource();
 
-        public WeatherViewModel(WeatherViewModelProvider dataProvider,
+        public WeatherViewModel(IWeatherViewModelProvider dataProvider,
             WeatherIconConverter iconConverter)
         {
             _dataProvider = dataProvider;
             _iconConverter = iconConverter;
         }
 
-        public async void StartWeatherLoading()
+        public async Task StartWeatherLoading()
         {
             var weather = await Task.Run(() =>
             {

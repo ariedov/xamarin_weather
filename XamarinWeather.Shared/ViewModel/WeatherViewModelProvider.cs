@@ -4,7 +4,12 @@ using XamarinWeather.Shared.Weather;
 
 namespace XamarinWeather.Shared.ViewModel
 {
-    public class WeatherViewModelProvider
+    public interface IWeatherViewModelProvider
+    {
+        Task<Weather.Weather> GetWeather();
+    }
+
+    public class WeatherViewModelProvider : IWeatherViewModelProvider
     {
         private readonly IWeatherLocationProvider _locationProvider;
         private readonly IWeatherProvider _weatherProvider;
@@ -29,10 +34,7 @@ namespace XamarinWeather.Shared.ViewModel
             {
                 return location.Value;
             }
-            else
-            {
-                return await GetLocationFromCallback();
-            }
+            return await GetLocationFromCallback();
         }
 
         private Task<WeatherLocation> GetLocationFromCallback()

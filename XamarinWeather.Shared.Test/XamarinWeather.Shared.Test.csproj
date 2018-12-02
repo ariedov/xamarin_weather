@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ViewModelProviderTest.cs" />
     <Compile Include="WeatherIconConverterTest.cs" />
+    <Compile Include="ViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

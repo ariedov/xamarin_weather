@@ -54,7 +54,7 @@ namespace XamarinWeather.Shared.Test
                 .ReturnsAsync(Maybe<WeatherLocation>.None);
             locationProvider.Setup(x => 
                 x.GetLocationUpdates(It.IsAny<System.Action<WeatherLocation>>(), It.IsAny<System.Action>()))
-                .Callback<System.Action<WeatherLocation>> (callback => callback(new WeatherLocation(0.0, 0.0)));
+                .Callback<System.Action<WeatherLocation>, System.Action> ((callback, error) => callback(new WeatherLocation(0.0, 0.0)));
             weatherProvider.Setup(x => x.GetWeather(It.IsAny<WeatherLocation>()))
                 .ReturnsAsync(new Weather.Weather("Kyiv", null, null));
 

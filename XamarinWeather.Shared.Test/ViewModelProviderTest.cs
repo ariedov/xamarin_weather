@@ -12,7 +12,7 @@ namespace XamarinWeather.Shared.Test
 {
 
     [TestFixture]
-    public class Test
+    public class ViewModelProviderTest
     {
         [Test]
         public async Task TestRecentLocationAvailable()

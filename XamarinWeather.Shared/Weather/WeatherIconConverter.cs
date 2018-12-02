@@ -40,6 +40,9 @@ namespace XamarinWeather.Shared.Weather
                 case BROKEN_CLOUDS_DAY:
                 case BROKEN_CLOUDS_NIGHT:
                     return WeatherIcon.BROKEN_CLOUDS;
+                case SHOWER_RAIN_DAY:
+                case SHOWER_RAIN_NIGHT:
+                    return WeatherIcon.SHOWER_RAIN;
                 case RAIN_DAY:
                     return WeatherIcon.RAIN_DAY;
                 case RAIN_NIGHT:
